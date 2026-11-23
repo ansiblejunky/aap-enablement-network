@@ -1,0 +1,9 @@
+---
+# defaults file for ansible-role-backup-config
+network_backup_dir: /tmp/backups
+network_backup_file: "{{ network_backup_dir }}/{{ inventory_hostname }}.cfg"
+network_backup_repository: "https://github.com/ansiblejunky/ansible-network-config-backup"
+git_name: ansible tower
+git_email: ansible_tower@gmail.com
+git_user: "amack"
+git_password: "!iprev08"

@@ -1,0 +1,7 @@
+- name: Backup the config for [{{ ansible_network_os }}]
+  cisco.ios.ios_config:
+    backup: true
+    backup_options:
+      filename: "{{ inventory_hostname }}.cfg"
+      dir_path: "{{ network_backup_dir }}"
+  register: config_output

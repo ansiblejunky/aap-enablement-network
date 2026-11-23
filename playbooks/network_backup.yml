@@ -1,0 +1,36 @@
+---
+- hosts: localhost
+  connection: local
+  gather_facts: false
+
+  tasks:
+
+  - name: Perform git clone
+    ansible.builtin.include_role:
+      name: ansible-role-git
+
+
+- hosts: all
+  gather_facts: false
+
+  tasks:
+
+  - name: Perform backup
+    ansible.builtin.include_role:
+      name: ansible-role-backup-config
+      apply:
+        tags:
+          - backup
+    tags:
+      - always
+    vars:
+      rolevar1: value from task
+
+- hosts: localhost
+  connection: local
+  gather_facts: false
+
+  tasks:
+
+  - name: Perform git push
+    ansible.builtin.include_role: 
